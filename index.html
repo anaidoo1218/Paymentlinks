@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Button - HelloPay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .pay-button {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            min-width: 200px;
+        }
+
+        .pay-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+        }
+
+        .pay-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .secure-note {
+            margin-top: 20px;
+            color: #888;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .lock-icon {
+            font-size: 1rem;
+            color: #4CAF50;
+        }
+
+        .payment-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .pay-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Vejay's Special Services</div>
+        <div class="subtitle">You ring...i come</div>
+        
+        <div class="payment-info">
+            <div class="product-name">1 * Special Request</div>
+            <div class="price">Complete Payment Now!</div>
+        </div>
+        
+        <a href="https://payments.hellopay.co.za/merchant/loombands-m_bg-p_a" 
+           class="pay-button" 
+           target="_blank"
+           rel="noopener noreferrer">
+            🚀 Pay Now
+        </a>
+        
+        <div class="secure-note">
+            <span class="lock-icon">🔒</span>
+            Secure payment powered by HelloPay
+        </div>
+    </div>
+
+    <script>
+        // Add click event listener for analytics or additional functionality
+        document.querySelector('.pay-button').addEventListener('click', function(e) {
+            // Optional: Add analytics tracking here
+            console.log('Payment button clicked');
+            
+            // Optional: You can add a loading state or confirmation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+
+        // Optional: Add keyboard accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.classList.contains('pay-button')) {
+                e.target.click();
+            }
+        });
+    </script>
+</body>
+</html>
